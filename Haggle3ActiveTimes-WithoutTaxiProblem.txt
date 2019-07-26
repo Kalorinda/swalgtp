@@ -1,0 +1,150 @@
+#Scenario information
+Scenario.name =  Haggle3
+Scenario.simulateConnections = false
+Scenario.updateInterval = 1 
+Scenario.endTime = 274883
+
+#987529 Haggle Cam
+#274883 Haggle
+#16981816 Reality
+ 
+# "Bluetooth" interface for all nodes
+btInterface.type = SimpleBroadcastInterface
+btInterface.transmitSpeed = 250k
+btInterface.transmitRange = 10
+
+# Common settings for all groups
+#Group.router = ShortestPathMapBasedMovement
+
+Group.router = DecisionEngineRouter
+DecisionEngineRouter.decisionEngine = sprayandwait.SprayAndWaitRouterDecisionEngine
+DecisionEngineRouter.nrofCopies = [3; 41]
+DecisionEngineRouter.binaryMode = true
+
+
+Scenario.nrofHostGroups = 11
+
+## TTL 24 hours=1440, 1 week= 10080, 3 weeks= 30240
+Group.msgTtl = 1440
+Group.nrofInterfaces = 1
+Group.interface1 = btInterface
+Group.bufferSize = 10M
+Group.waitTime = 20, 50
+Group.speed = 0.5, 1.5
+Group.nodeLocation = 10, 10
+Group.movementModel = StationaryMovement
+
+#Dimatikan
+Group1.groupID = A
+Group1.nrofHosts = 2
+Group1.net.activeTimes = 0, 44100
+#44100, 91800
+#0, 29700, 66600, 274883
+
+#Hidup
+Group2.groupID = B
+Group2.nrofHosts = 6
+
+#Dimatikan
+Group3.groupID = G
+Group3.nrofHosts = 2
+Group3.net.activeTimes = 0, 44100
+#44100, 91800
+#0, 29700, 66600, 274883
+
+#Hidup
+Group4.groupID = H
+Group4.nrofHosts = 4
+
+#Dimatikan
+Group5.groupID = I
+Group5.nrofHosts = 2
+Group5.net.activeTimes = 0, 44100
+#44100, 91800
+#0, 29700, 66600, 274883
+
+#Hidup
+Group6.groupID = J
+Group6.nrofHosts = 4
+
+#Dimatikan
+Group7.groupID = K
+Group7.nrofHosts = 2
+Group7.net.activeTimes = 0, 44100
+#44100, 91800
+#0, 29700, 66600, 274883
+
+#Hidup
+Group8.groupID = L
+Group8.nrofHosts = 7
+
+#Dimatikan
+Group9.groupID = O
+Group9.nrofHosts = 2
+Group9.net.activeTimes = 0, 44100
+#44100, 91800
+#0, 29700, 66600, 274883
+
+#Hidup
+Group10.groupID = P
+Group10.nrofHosts = 9 
+
+#Dimatikan
+Group11.groupID = S
+Group11.nrofHosts = 1
+Group11.net.activeTimes = 0, 44100
+#44100, 91800
+#0, 29700, 66600, 274883
+
+
+E## Message creation parameters 
+# How many event generators
+Events.nrof = 2
+# Class of the first event generator
+Events1.class = ExternalEventsQueue
+#Events1.filePath = RealityConnectionTraceFinal.txt
+Events1.filePath = Haggle3-Infocom5.csv
+#Events1.filePath = Haggle4-Cam-Imote.csv
+Events2.class = MessageEventGenerator
+Events2.interval = 290,310
+Events2.size = 10k 
+
+## range of message source/destination address 
+Events2.hosts = 0, 40
+# 0, 35 Haggle Cam
+# 0,40 Haggle
+# 0,96 Reality
+Events2.prefix = M
+
+## Movement model settings
+MovementModel.rngSeed = 1
+MovementModel.worldSize = 150, 150
+MovementModel.warmup = 1000
+
+
+## Reports - all report names have to be valid report classes
+
+# how many reports to load
+Report.nrofReports = 2
+Report.warmup = 0
+Report.reportDir = reports/Haggle3ActiveTimes-25Juli2019-Revisi-Pesan-TanpaTaxiProblem
+
+# Report classes to load
+Report.report1 = TotalNodeHidupReport
+Report.report2 = MessageStatsReport
+
+## GUI settings
+
+# GUI underlay image settings
+GUI.UnderlayImage.fileName = data/helsinki_underlay.png
+# Image offset in pixels (x, y)
+GUI.UnderlayImage.offset = 64, 20
+# Scaling factor for the image
+GUI.UnderlayImage.scale = 4.75
+# Image rotation (radians)
+GUI.UnderlayImage.rotate = -0.015
+
+# how many events to show in the log panel (default = 30)
+GUI.EventLogPanel.nrofEvents = 100
+# Regular Expression log filter (see Pattern-class from the Java API for RE-matching details)
+#GUI.EventLogPanel.REfilter = .*p[1-9]<->p[1-9]$
