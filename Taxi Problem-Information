@@ -1,0 +1,14 @@
+Kalorinda (kalorinda1214@gmail.com)
+
+
+Algoritma taxi problem dapat ditemukan dipackage routing.sprayandwait, terdapat beberapa kelas pada package tersebut
+Kelas SprayAndWaitRouterWithTaxiProblem berisi algoritma taxi problem dengan bertukar informasi & routing spray and wait
+Kelas SprayAndWaitRouterWithTaxiProblemDiTambah berisi algoritma taxi problem with interval node dianggap hidup & routing spray and wait
+Kelas SprayAndWaitRouterDecisionEngine adalah protokol routing menggunakan decision engine
+
+
+Report yang digunakan untuk melihat hasil algoritma taxi problem adalah kelas AverageConvergenTimeReport & MessageReportGetCounting pada package report
+Kelas TotalNodeHidupReport digunakan untuk melihat berapa node hidup per interval waktu
+Kelas interface CountingTaxiProblem digunakan untuk mengambil nilai hasil estimasi dari kelas utama
+
+Pada default setting terdapat beberapa skenario untuk dataset tanpa taxi problem & dataset menggunakan taxi problem dengan skenario beberapa node mati
